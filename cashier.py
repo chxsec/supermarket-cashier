@@ -13,8 +13,11 @@ def enter_products():
         details = input('Press A to add product and Q to quit: ')
         if details == 'A':
             product = input('Enter product: ')
-            quantity = int(input('Enter quantity: '))
-            buying_data.update({product: quantity})
+            try:
+                quantity = int(input('Enter quantity: '))
+                buying_data.update({product: quantity})
+            except ValueError as e:
+                print("quantity must be in integer")
         elif details == 'Q':
             enter_details = False
         else:
